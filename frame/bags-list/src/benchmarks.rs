@@ -20,6 +20,7 @@
 use super::*;
 use crate::list::List;
 use frame_benchmarking::{account, whitelist_account, whitelisted_caller};
+use crate::Pallet as BagsList;
 use frame_election_provider_support::VoteWeightProvider;
 use frame_support::{assert_ok, traits::Get};
 use frame_system::RawOrigin as SystemOrigin;
@@ -174,4 +175,6 @@ frame_benchmarking::benchmarks! {
 			vec![heavier, lighter, heavier_prev, heavier_next]
 		)
 	}
+
+	impl_benchmark_test_suite!(BagsList, crate::mock::new_test_ext(), crate::mock::Runtime);
 }

@@ -154,6 +154,10 @@ impl ExtBuilder {
 	}
 }
 
+pub(crate) fn new_test_ext() -> sp_io::TestExternalities {
+	ExtBuilder::default().build()
+}
+
 #[cfg(test)]
 pub(crate) mod test_utils {
 	use super::*;
